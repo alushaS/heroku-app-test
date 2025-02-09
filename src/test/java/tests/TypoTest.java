@@ -14,7 +14,7 @@ public class TypoTest {
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/typos");
         String expectedResult = "Sometimes you'll see a typo, other times you won't.";
-        String actualResult = driver.findElement(By.xpath("//*[@id=\"content\"]/div/p[2]")).getText();
+        String actualResult = driver.findElement(By.xpath("//p[2]")).getText();
         Assert.assertEquals(actualResult, expectedResult);
         driver.quit();
     }

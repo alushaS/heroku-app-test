@@ -12,22 +12,20 @@ import org.testng.annotations.Test;
 public class DropdownTest {
 
     @Test
-    public void dropDownTest() {
+    public void selectOptionsTest() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/dropdown");
         Select select = new Select(driver.findElement(By.xpath("//*[@id=\"dropdown\"]")));
         List<WebElement> optionsList = select.getOptions();
-        WebElement option1 = (WebElement)optionsList.get(1);
+        WebElement option1 = optionsList.get(1);
         option1.click();
         String text1 = select.getFirstSelectedOption().getText();
-        String expected = "Option 1";
-        Assert.assertEquals(text1, expected);
-        WebElement option2 = (WebElement)optionsList.get(2);
+        Assert.assertEquals(text1, "Option 1");
+        WebElement option2 = optionsList.get(2);
         option2.click();
         String text2 = select.getFirstSelectedOption().getText();
-        String expected2 = "Option 2";
-        Assert.assertEquals(text2, expected2);
+        Assert.assertEquals(text2, "Option 2");
         driver.quit();
     }
 }

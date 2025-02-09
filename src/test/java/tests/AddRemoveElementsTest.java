@@ -20,8 +20,7 @@ public class AddRemoveElementsTest {
             driver.findElement(By.xpath("//button[text()='Add Element']")).click();
             driver.findElement(By.xpath("//button[text()='Delete']")).click();
             List<WebElement> list = driver.findElements(By.xpath("//button[text()='Delete']"));
+            Assert.assertEquals(list.size(), 1);
             driver.quit();
-            int deleteButtonExpectedQuantity = 1;
-            Assert.assertEquals(list.size(), deleteButtonExpectedQuantity);
         }
     }

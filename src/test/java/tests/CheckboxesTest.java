@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
     public class CheckboxesTest {
 
         @Test
-        public void checkboxesTestFirst() {
+        public void firstCheckboxUncheckedTest() {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
             WebDriver driver = new ChromeDriver();
             driver.get("https://the-internet.herokuapp.com/checkboxes");
@@ -18,13 +18,12 @@ import org.testng.annotations.Test;
             if (!checkbox.isSelected()) {
                 checkbox.click();
             }
-
             Assert.assertEquals(checkbox.isSelected(), true);
             driver.quit();
         }
 
         @Test
-        public void checkboxesTestSecond() {
+        public void secondCheckboxCheckedTest() {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
             WebDriver driver = new ChromeDriver();
             driver.get("https://the-internet.herokuapp.com/checkboxes");
@@ -32,7 +31,6 @@ import org.testng.annotations.Test;
             if (checkbox.isSelected()) {
                 checkbox.click();
             }
-
             Assert.assertEquals(checkbox.isSelected(), false);
             driver.quit();
         }
