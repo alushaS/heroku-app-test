@@ -21,7 +21,7 @@ public class ContextMenuTest {
         WebElement element = driver.findElement(By.id("hot-spot"));
         Actions actions = new Actions(driver);
         actions.contextClick(element).perform();
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(4));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         Assert.assertEquals(wait.until(ExpectedConditions.alertIsPresent()).getText(), "You selected a context menu");
         driver.quit();
     }

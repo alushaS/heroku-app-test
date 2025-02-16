@@ -17,11 +17,11 @@ public class FileUploadTest {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/upload");
-        driver.findElement(By.xpath("//*[@id='file-upload']")).sendKeys("src/test/resources/Harakteristika-pasporta-SSHA.jpg");
-        driver.findElement(By.xpath("//*[@id='file-submit']")).click();
+        driver.findElement(By.id("file-upload")).sendKeys("src/test/resources/Harakteristika-pasporta-SSHA.jpg");
+        driver.findElement(By.id("file-submit")).click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.textToBe(By.xpath("//h3['File Uploaded!']"), "File Uploaded!"));
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id='uploaded-files']")).getText(), "Harakteristika-pasporta-SSHA.jpg");
+        wait.until(ExpectedConditions.textToBe(By.xpath("//h3"), "File Uploaded!"));
+        Assert.assertEquals(driver.findElement(By.id("uploaded-files")).getText(), "Harakteristika-pasporta-SSHA.jpg");
         driver.quit();
     }
 }
